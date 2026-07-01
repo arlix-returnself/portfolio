@@ -18,7 +18,7 @@ class HeroSection extends StatelessWidget {
                 width: 110,
                 height: 110,
                 fit: BoxFit.cover,
-                errorBuilder: (_, __, ___) => const Icon(Icons.person, size: 100),
+                errorBuilder: (_, _, _) => const Icon(Icons.person, size: 100),
               ),
             ),
             const SizedBox(width: 20),
