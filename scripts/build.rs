@@ -100,11 +100,28 @@ struct Project {
     id: String,
     category: String,
     title: String,
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    alter_title: Option<String>,
     tech: String,
     description: String,
     nda: bool,
     #[serde(default)]
     link: Option<String>,
+}
+
+impl Project {
+    /// Public-facing title: the real `title` for non-NDA projects, or the
+    /// mandatory `alter_title` for NDA ones. Panics if an NDA project has no
+    /// alter_title, so a real name can never leak into build output by mistake.
+    fn display_title(&self) -> &str {
+        if self.nda {
+            self.alter_title
+                .as_deref()
+                .unwrap_or_else(|| panic!("project '{}' has nda: true but no alter_title set", self.id))
+        } else {
+            &self.title
+        }
+    }
 }
 
 #[derive(Debug, Deserialize, Serialize, Clone)]
@@ -408,7 +425,7 @@ fn render_project_card(project: &Project) -> String {
 
     format!(
         "\n                        <div class=\"project-card{nda_class}\">\n                            <div class=\"project-title\">{}{nda_badge}</div>\n                            <div class=\"project-tech\">{}</div>\n                            <div class=\"project-description\">\n                                {}\n                            </div>{link_html}\n                        </div>",
-        project.title, project.tech, render_inline(&project.description)
+        project.display_title(), project.tech, render_inline(&project.description)
     )
 }
 
@@ -542,7 +559,12 @@ fn main() {
 
     let json_dir = Path::new("app/assets/data");
     fs::create_dir_all(json_dir).expect("không tạo được app/assets/data");
-    let json = serde_json::to_string_pretty(&profile).expect("serialize profile.yaml sang JSON thất bại");
+    let mut public_profile = profile.clone();
+    for p in &mut public_profile.projects {
+        p.title = p.display_title().to_string();
+        p.alter_title = None;
+    }
+    let json = serde_json::to_string_pretty(&public_profile).expect("serialize profile.yaml sang JSON thất bại");
     fs::write(json_dir.join("profile.json"), json).expect("ghi app/assets/data/profile.json thất bại");
     println!("✅ app/assets/data/profile.json");
 }

@@ -202,7 +202,8 @@ project_categories:
 projects:
   - id: confidential-apartment
     category: highlighted
-    title: "Confidential Apartment Management App"
+    title: "Confidential Apartment Management App" # tên thật chưa rõ, xem project_map.md
+    alter_title: "Confidential Apartment Management App"
     tech: "Flutter"
     description: "High-density premium UI redesign for an enterprise apartment management system. Integrated complex billing analytics and interactive community bulletins."
     nda: true
@@ -238,25 +239,29 @@ projects:
     nda: false
   - id: galaxy-pynt
     category: production
-    title: "Confidential Escape Room Booking Platform"
+    title: "Galaxy Pynt"
+    alter_title: "Confidential Escape Room Booking Platform"
     tech: "Flutter, NestJS"
     description: "Escape room booking platform with VNPay integration. Custom bash deployment automation using App Store Connect API and Firebase CLI. **Nearing deployment**."
     nda: true
   - id: nlcs-sancro
     category: production
-    title: "Confidential Student Verification App"
+    title: "NLCS - Sancro"
+    alter_title: "Confidential Student Verification App"
     tech: "SwiftUI"
     description: "Student verification app with ClearPass API integration. Apple School Manager deployment (private enterprise distribution, not public App Store). Python automation for bulk provisioning. **Production use**."
     nda: true
   - id: simap
     category: production
-    title: "Confidential IoT Device Management App"
+    title: "Simap"
+    alter_title: "Confidential IoT Device Management App"
     tech: "Kotlin, Jetpack Compose, Java"
     description: "Native Android app for IoT device management. MVVM architecture, high-speed barcode/NFC scanning. Kotlin automation scripts for device simulation. **Internal production use**."
     nda: true
   - id: yuragi-plus
     category: production
-    title: "Confidential Music Streaming App"
+    title: "Yuragi+"
+    alter_title: "Confidential Music Streaming App"
     tech: "React Native"
     description: "Music streaming application with ad integration. **Deployed on iOS & Android**."
     nda: true
@@ -268,7 +273,8 @@ projects:
     nda: false
   - id: immoshoot-crawler
     category: backend_automation
-    title: "Confidential Data Crawling Service"
+    title: "Immoshoot Crawler"
+    alter_title: "Confidential Data Crawling Service"
     tech: "Kotlin, Spring Boot, Apache Camel"
     description: "High-volume data crawling service. Dockerized, deployed on AWS with MySQL. Daily cron jobs for automated reporting via Slack webhooks. Kotlin CLI tools for monitoring."
     nda: true
