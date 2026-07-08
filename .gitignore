@@ -18,3 +18,8 @@ scripts/target/
 
 # content
 content/*.lock
+
+# AI agent internal notes (not for public repo)
+.agents/
+AGENTS.md
+CLAUDE.md
