@@ -1,6 +1,6 @@
 {
   "meta": {
-    "canonical_url": "https://hvanw.github.io",
+    "canonical_url": "https://arlix-returnself.github.io",
     "last_updated": "2026-07"
   },
   "person": {
@@ -10,8 +10,8 @@
       {
         "type": "email",
         "icon": "📧",
-        "value": "vanhuy2710@gmail.com",
-        "link": "mailto:vanhuy2710@gmail.com"
+        "value": "huy.vanminh@returnself.studio",
+        "link": "mailto:huy.vanminh@returnself.studio"
       },
       {
         "type": "phone",
@@ -22,14 +22,14 @@
       {
         "type": "github",
         "icon": "💻",
-        "value": "github.com/Hvanw",
-        "link": "https://github.com/Hvanw"
+        "value": "github.com/arlix-returnself",
+        "link": "https://github.com/arlix-returnself"
       },
       {
         "type": "portfolio",
         "icon": "🌐",
         "value": "Portfolio",
-        "link": "https://hvanw.github.io/portfolio"
+        "link": "https://arlix-returnself.github.io/portfolio"
       },
       {
         "type": "location",

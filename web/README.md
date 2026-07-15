@@ -4,20 +4,20 @@ This directory contains my professional profiles and resumes, dynamically genera
 
 ## 🚀 Live Portfolio Portal
 The most professional way to view my profiles is through the interactive portal:
-**[https://hvanw.github.io/portfolio/](https://hvanw.github.io/portfolio/)**
+**[https://arlix-returnself.github.io/portfolio/](https://arlix-returnself.github.io/portfolio/)**
 
 ---
 
 ## Direct Profile Links
 
-- **Mobile Developer (100% Match Optimized)**: [Live Link](https://hvanw.github.io/portfolio/profiles/mobile/)
-- **AI & Automation Specialist**: [Live Link](https://hvanw.github.io/portfolio/profiles/ai-automation/)
-- **Standard Professional Resume**: [Live Link](https://hvanw.github.io/portfolio/profiles/standard/)
-- **iOS Specialist Resume**: [Live Link](https://hvanw.github.io/portfolio/profiles/ios/)
-- **Android Specialist Resume**: [Live Link](https://hvanw.github.io/portfolio/profiles/android/)
-- **Full Portfolio Version**: [Live Link](https://hvanw.github.io/portfolio/profiles/full-portfolio/)
-- **Xamarin Developer**: [Live Link](https://hvanw.github.io/portfolio/profiles/xamarin/)
-- **Software Engineering Instructor & Mentor**: [Live Link](https://hvanw.github.io/portfolio/profiles/teaching/)
+- **Mobile Developer (100% Match Optimized)**: [Live Link](https://arlix-returnself.github.io/portfolio/profiles/mobile/)
+- **AI & Automation Specialist**: [Live Link](https://arlix-returnself.github.io/portfolio/profiles/ai-automation/)
+- **Standard Professional Resume**: [Live Link](https://arlix-returnself.github.io/portfolio/profiles/standard/)
+- **iOS Specialist Resume**: [Live Link](https://arlix-returnself.github.io/portfolio/profiles/ios/)
+- **Android Specialist Resume**: [Live Link](https://arlix-returnself.github.io/portfolio/profiles/android/)
+- **Full Portfolio Version**: [Live Link](https://arlix-returnself.github.io/portfolio/profiles/full-portfolio/)
+- **Xamarin Developer**: [Live Link](https://arlix-returnself.github.io/portfolio/profiles/xamarin/)
+- **Software Engineering Instructor & Mentor**: [Live Link](https://arlix-returnself.github.io/portfolio/profiles/teaching/)
 
 ## Source Documents
 

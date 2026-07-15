@@ -20,11 +20,11 @@ class PortfolioLandscapeApp extends StatelessWidget {
 class LandScapeView extends StatelessWidget {
   const LandScapeView({super.key});
 
-  static const _email = 'vanhuy2710@gmail.com';
-  static const _github = 'https://github.com/Hvanw';
-  static const _portfolio = 'https://hvanw.github.io/dotfiles';
+  static const _email = 'huy.vanminh@returnself.studio';
+  static const _github = 'https://github.com/arlix-returnself';
+  static const _portfolio = 'https://arlix-returnself.github.io/portfolio';
   static const _phone = '+84 354 726 583';
-  static const _cvUrl = 'https://hvanw.github.io/dotfiles/resume.pdf'; // replace
+  static const _cvUrl = 'https://arlix-returnself.github.io/portfolio';
 
   @override
   Widget build(BuildContext context) {

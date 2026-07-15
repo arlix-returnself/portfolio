@@ -14,9 +14,9 @@ class ContactSection extends StatelessWidget {
           children: [
             const Text('Contact', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
             const SizedBox(height: 12),
-            _contactRow(Icons.email, 'vanhuy2710@gmail.com', () => _openEmail('vanhuy2710@gmail.com')),
+            _contactRow(Icons.email, 'huy.vanminh@returnself.studio', () => _openEmail('huy.vanminh@returnself.studio')),
             const SizedBox(height: 8),
-            _contactRow(Icons.link, 'GitHub: Hvanw', () => _openUrl('https://github.com/Hvanw')),
+            _contactRow(Icons.link, 'GitHub: arlix-returnself', () => _openUrl('https://github.com/arlix-returnself')),
           ],
         ),
       ),
