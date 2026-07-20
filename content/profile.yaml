@@ -283,6 +283,13 @@ projects:
     tech: "React Native"
     description: "Insurance and MLM cross-platform applications. **Successfully deployed**."
     nda: true
+  - id: kgb-field-sales-tracking
+    category: production
+    title: "KGB" # tên thật, chỉ để tra cứu nội bộ - nhớ không rõ tên đầy đủ/công ty, khá lâu rồi
+    alter_title: "Confidential Field Sales Tracking App"
+    tech: "Flutter, GPS Background Tracking"
+    description: "Grab-style background GPS tracking feature for a field sales team (FMCG/beverage industry client), feeding a backend for automated KPI/route calculation."
+    nda: true
   - id: immoshoot-crawler
     category: backend_automation
     title: "Immoshoot Crawler"

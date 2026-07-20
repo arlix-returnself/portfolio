@@ -424,6 +424,15 @@
       "link": null
     },
     {
+      "id": "kgb-field-sales-tracking",
+      "category": "production",
+      "title": "Confidential Field Sales Tracking App",
+      "tech": "Flutter, GPS Background Tracking",
+      "description": "Grab-style background GPS tracking feature for a field sales team (FMCG/beverage industry client), feeding a backend for automated KPI/route calculation.",
+      "nda": true,
+      "link": null
+    },
+    {
       "id": "immoshoot-crawler",
       "category": "backend_automation",
       "title": "Confidential Data Crawling Service",
