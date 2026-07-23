@@ -1,48 +1,37 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/data/technical_stack.dart';
 
-class TechnicalStackWidget extends StatelessWidget {
-  const TechnicalStackWidget(this.data, {super.key});
+/// Generic tech-name chip, fed by free-form strings from profile.json
+/// (e.g. project.techChips, skill item content) — no longer a fixed enum,
+/// since the real data includes stacks (Next.js, Supabase, n8n, ...) that
+/// a closed enum couldn't represent.
+class TechChip extends StatelessWidget {
+  const TechChip(this.label, {super.key});
 
-  final TechnicalStack data;
+  final String label;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.all(1),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(3.5),
-      ),
-      padding: EdgeInsets.symmetric(horizontal: 4, vertical: 2),
-      child: Text(
-        data.name,
-        style: Theme.of(context).textTheme.bodySmall?.copyWith(
-          color: Theme.of(context).colorScheme.primary,
-        ),
-      ),
+    return Chip(
+      label: Text(label),
+      visualDensity: VisualDensity.compact,
+      materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
     );
   }
 }
 
-class ListTechnicalStacksWidget extends StatelessWidget {
-  const ListTechnicalStacksWidget(this.data, {super.key});
+class TechChipList extends StatelessWidget {
+  const TechChipList(this.items, {super.key});
 
-  final List<TechnicalStack> data;
+  final List<String> items;
 
   @override
   Widget build(BuildContext context) {
-    return (data.isEmpty)
+    return items.isEmpty
         ? const SizedBox()
         : Wrap(
             spacing: 8,
             runSpacing: 8,
-            children: [
-              for (int i = 0; i < data.length; i++) ...[
-                if (i > 0) const SizedBox(width: 4),
-                TechnicalStackWidget(data[i]),
-              ],
-            ],
+            children: [for (final item in items) TechChip(item)],
           );
   }
 }

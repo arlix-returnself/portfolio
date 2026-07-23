@@ -1,72 +1,59 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/generated/assets.gen.dart';
-import 'package:portfolio/data/project.dart';
-import 'package:portfolio/presentation/portrait/technical_stack_widget.dart';
+import 'package:portfolio/data/models/project.dart';
 import 'package:portfolio/presentation/portrait/project_detail_page.dart';
+import 'package:portfolio/presentation/portrait/technical_stack_widget.dart';
 
 class ProjectTile extends StatelessWidget {
   final Project project;
   const ProjectTile({super.key, required this.project});
 
-  Widget _buildImage(BuildContext context) {
-    final imageUrl = project.imageUrl ?? '';
-    final isImageValid = imageUrl.isNotEmpty;
-    return SizedBox(
-      height: 120,
-      child: ClipRRect(
-        borderRadius: BorderRadiusGeometry.circular(4),
-        child: Image(
-          image: isImageValid
-              ? NetworkImage(imageUrl)
-              : Assets.images.placeholder.provider(),
-          fit: BoxFit.cover,
-        ),
-      ),
-    );
-  }
-
-  Widget _buildDetails(BuildContext context) {
-    return Expanded(
-      child: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              project.name,
-              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(height: 8),
-            Text(project.short, style: TextStyle(color: Colors.grey.shade700)),
-            Spacer(),
-            ListTechnicalStacksWidget(project.technicalStacks),
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget card(BuildContext context) {
-    return Card(
-      child: SizedBox(
-        width: MediaQuery.of(context).size.width * 0.45,
-        child: Column(
-          mainAxisSize: MainAxisSize.max,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [_buildImage(context), _buildDetails(context)],
-        ),
-      ),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
     return GestureDetector(
       onTap: () => Navigator.push(
         context,
         MaterialPageRoute(builder: (_) => ProjectDetailPage(project: project)),
       ),
-      child: card(context),
+      child: SizedBox(
+        width: 260,
+        child: Card(
+          elevation: 0,
+          color: colorScheme.surfaceContainerHighest,
+          child: Padding(
+            padding: const EdgeInsets.all(14),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  children: [
+                    Expanded(
+                      child: Text(
+                        project.title,
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                        style: const TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                    if (project.nda) Icon(Icons.lock_outline, size: 16, color: colorScheme.onSurfaceVariant),
+                  ],
+                ),
+                const SizedBox(height: 6),
+                Expanded(
+                  child: Text(
+                    project.description,
+                    maxLines: 4,
+                    overflow: TextOverflow.ellipsis,
+                    style: TextStyle(fontSize: 12.5, color: colorScheme.onSurfaceVariant),
+                  ),
+                ),
+                const SizedBox(height: 8),
+                TechChipList(project.techChips),
+              ],
+            ),
+          ),
+        ),
+      ),
     );
   }
 }

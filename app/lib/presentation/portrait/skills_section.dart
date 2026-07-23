@@ -1,24 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/data/technical_stack.dart';
-import 'package:portfolio/presentation/portrait/technical_stack_widget.dart';
-
-const skills = [
-  TechnicalStack.flutter,
-  TechnicalStack.dart,
-  TechnicalStack.kotlin,
-  TechnicalStack.compose,
-  TechnicalStack.reactNative,
-  TechnicalStack.swiftUI,
-  TechnicalStack.ciCd,
-  TechnicalStack.fastlane,
-  TechnicalStack.aws,
-  TechnicalStack.docker,
-  TechnicalStack.cleanArchitecture,
-  TechnicalStack.mvvm,
-];
+import 'package:portfolio/data/models/skill_category.dart';
+import 'package:portfolio/presentation/widgets/bold_text.dart';
 
 class SkillsSection extends StatelessWidget {
-  const SkillsSection({super.key});
+  const SkillsSection({super.key, required this.skills});
+
+  final List<SkillCategory> skills;
 
   @override
   Widget build(BuildContext context) {
@@ -28,14 +15,53 @@ class SkillsSection extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
-              'Skills',
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-            ),
+            Text('Skills', style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.bold)),
             const SizedBox(height: 12),
-            ListTechnicalStacksWidget(skills),
+            for (final category in skills) ...[
+              _SkillCategoryCard(category: category),
+              if (category != skills.last) const SizedBox(height: 12),
+            ],
           ],
         ),
+      ),
+    );
+  }
+}
+
+class _SkillCategoryCard extends StatelessWidget {
+  const _SkillCategoryCard({required this.category});
+
+  final SkillCategory category;
+
+  @override
+  Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+    return Container(
+      padding: const EdgeInsets.all(12),
+      decoration: BoxDecoration(
+        color: colorScheme.surfaceContainerHighest,
+        borderRadius: BorderRadius.circular(12),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              Text(category.icon, style: const TextStyle(fontSize: 18)),
+              const SizedBox(width: 8),
+              Text(category.title, style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w700)),
+            ],
+          ),
+          const SizedBox(height: 8),
+          for (final item in category.items)
+            Padding(
+              padding: const EdgeInsets.only(bottom: 4),
+              child: BoldText(
+                '${item.label}: ${item.content}',
+                style: const TextStyle(fontSize: 13),
+              ),
+            ),
+        ],
       ),
     );
   }

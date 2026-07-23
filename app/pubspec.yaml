@@ -39,6 +39,7 @@ dependencies:
   equatable: ^2.0.7
   flutter_launcher_icons: ^0.14.4
   connectivity_banner: ^1.0.1
+  google_fonts: ^6.2.1
 
 dev_dependencies:
   flutter_test:
@@ -68,6 +69,7 @@ flutter:
   assets:
     - assets/images/
     - assets/icons/
+    - assets/data/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

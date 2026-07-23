@@ -1,0 +1,51 @@
+folder: "0_portfolio"
+created: "2026-07-23"
+moved_from: "personal/code/portfolio (relocated + renamed 2026-07-23, git history/remote untouched)"
+purpose: >
+  Huy's personal/business portfolio: single source of truth for professional
+  content (content/profile.yaml), a Rust build pipeline generating a static
+  resume site and Flutter app data, and (planned) the consuming Flutter app
+  itself. Public-facing — this is the only project under ReturnSelf/ that is
+  meant to be published.
+full_docs: "AGENTS.md (repo structure, permissions), .agents/project_map.md (current status, NDA rules, tech debt)"
+
+publication_boundary:
+  is_public_git_repo: true
+  remote: "https://github.com/arlix-returnself/portfolio.git"
+  deployed_via: ".github/workflows/deploy-pages.yml -> GitHub Pages, publishes web/ only"
+  implication: >
+    Because this repo is pushed to a public remote and deployed publicly, nothing
+    private/unconfirmed may ever be added here — see nda_rule below, and see
+    relationship_to_biding for why sibling folder 0_biding is kept entirely
+    separate instead of nested inside this repo.
+
+nda_rule: >
+  content/profile.yaml has a title/alter_title split for NDA=true projects.
+  scripts/build.rs panics at build time if nda=true and alter_title is missing,
+  and strips the real title + link from both HTML and app/assets/data/profile.json
+  output. Any new field added to the Project schema must be checked for whether
+  it needs stripping under nda=true, in both the HTML renderer and the JSON
+  export path (a past bug let a `link` field leak through for NDA projects —
+  see .agents/project_map.md for the incident).
+
+relationship_to_biding:
+  sibling_folder: "../0_biding"
+  principle: >
+    content/profile.yaml here is the single source of truth at the DATA level
+    for Huy's freelance bidding proposals too — 0_biding never keeps its own
+    copy, it reads this file live per-proposal. The two stay separate
+    folders/repos (rather than nesting 0_biding inside this one) purely because
+    of the publication boundary above: 0_biding holds prospective/unclosed-deal
+    data that must never enter a public repo's git history. See
+    ../0_biding/index.yaml for the full reasoning from that side.
+  workflow: >
+    Finish a project -> update content/profile.yaml here once (rebuild via
+    `rust-script scripts/build.rs` if web/app output needs to reflect it) ->
+    that's the only step; 0_biding has nothing to sync.
+
+structure:
+  content/: "content/profile.yaml (canonical data) + content/keymap.yaml (per-profile title/SEO/section overrides) — the only place project/experience data is edited by hand"
+  scripts/build.rs: "rust-script pipeline: content/ -> web/profiles/*/index.html (7 profiles) + app/assets/data/profile.json"
+  web/: "Static resume site output, entirely generated — published to GitHub Pages"
+  app/: "Flutter app (portfolio/mobile showcase) — as of 2026-07-23 still hard-codes placeholder data instead of reading app/assets/data/profile.json; wiring it up is planned but not yet done, see .agents/project_map.md"
+  .agents/: "Session context snapshots (.agents/context/), project map, and the CV PDF pipeline (.agents/cv/)"

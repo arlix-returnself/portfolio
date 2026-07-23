@@ -1,41 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/data/models/project.dart';
 import 'package:portfolio/presentation/portrait/project_tile.dart';
 
-import '../../data/project.dart';
-
 class ProjectShowcaseSection extends StatelessWidget {
-  const ProjectShowcaseSection({super.key});
+  const ProjectShowcaseSection({super.key, required this.categories, required this.projects});
 
-  Widget listProjectsWidget(BuildContext context) {
-    return SizedBox(
-      height: 250,
-      child: ListView.builder(
-        scrollDirection: Axis.horizontal,
-        itemCount: demoProjects.length,
-        itemBuilder: (_, index) {
-          final itemWidget = ProjectTile(project: demoProjects[index]);
-          if (index == demoProjects.length - 1) {
-            return Row(
-              children: [
-                itemWidget,
-                TextButton(
-                  onPressed: () {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(
-                        content: Text('Not implemented yet'),
-                      ),
-                    );
-                  },
-                  child: const Text('See all projects'),
-                ),
-              ],
-            );
-          }
-          return itemWidget;
-        },
-      ),
-    );
-  }
+  final List<ProjectCategory> categories;
+  final List<Project> projects;
 
   @override
   Widget build(BuildContext context) {
@@ -45,15 +16,43 @@ class ProjectShowcaseSection extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
-              'Projects',
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-            ),
+            Text('Projects', style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.bold)),
             const SizedBox(height: 12),
-            listProjectsWidget(context),
+            for (final category in categories) ...[
+              _CategoryProjects(category: category, projects: projects.where((p) => p.category == category.id).toList()),
+              if (category != categories.last) const SizedBox(height: 20),
+            ],
           ],
         ),
       ),
+    );
+  }
+}
+
+class _CategoryProjects extends StatelessWidget {
+  const _CategoryProjects({required this.category, required this.projects});
+
+  final ProjectCategory category;
+  final List<Project> projects;
+
+  @override
+  Widget build(BuildContext context) {
+    if (projects.isEmpty) return const SizedBox();
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(category.title, style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w700)),
+        const SizedBox(height: 10),
+        SizedBox(
+          height: 190,
+          child: ListView.separated(
+            scrollDirection: Axis.horizontal,
+            itemCount: projects.length,
+            separatorBuilder: (context, index) => const SizedBox(width: 12),
+            itemBuilder: (_, index) => ProjectTile(project: projects[index]),
+          ),
+        ),
+      ],
     );
   }
 }
