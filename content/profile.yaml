@@ -314,6 +314,76 @@ projects:
     tech: "Flutter, GPS Background Tracking"
     description: "Grab-style background GPS tracking feature for a field sales team (FMCG/beverage industry client), feeding a backend for automated KPI/route calculation."
     nda: true
+  - id: sportina
+    category: production
+    title: "Sportina"
+    alter_title: "Confidential Sports Platform Microservices Backend"
+    tech: "NestJS, PostgreSQL, Docker"
+    description: "Microservices backend platform for a sports service — separate gateway, auth, customer, payment, and partner services, containerized and orchestrated via Docker Compose."
+    nda: true
+  - id: rsd-kansas
+    category: production
+    title: "RSD Kansas (Worklinks ATS)" # tên khách hàng thật chưa rõ, chỉ có tên project/DB nội bộ (kansasdb7/tigernowdb, "agn-worklinks")
+    alter_title: "Confidential Attendance Tracking System"
+    tech: "ASP.NET Core, MySQL"
+    description: "Attendance/timesheet tracking system (ATS) backend for enterprise workforce management — the only .NET engagement among AEGONA production projects."
+    nda: true
+  - id: cuuma-mobile
+    category: production
+    title: "Cuuma"
+    alter_title: "Confidential Field Dispatch & Task Management App"
+    tech: "Flutter"
+    description: "Field dispatch and task management mobile app for a Finnish client, maintained across multiple release cycles from 2021 to 2025."
+    nda: true
+  - id: sport-social
+    category: production
+    title: "Sport Social" # tên app thật, tên thư mục nội bộ "sport-connect-mobile"
+    alter_title: "Confidential Sports Social Networking App"
+    tech: "Flutter"
+    description: "Sports-focused social networking mobile app — feed, profiles, and social features, maintained over a long-running multi-year engagement (~1700 commits)."
+    nda: true
+  - id: nhg-education
+    category: production
+    title: "NHG" # viết tắt nội bộ, chưa rõ tên đầy đủ trường/tổ chức
+    alter_title: "Confidential Education Platform (Parent & Teacher Apps)"
+    tech: "Flutter"
+    description: "Dual-app education platform: an iPortal parent portal and a companion teacher app for school communication and management."
+    nda: true
+  - id: shift-squad
+    category: production
+    title: "Shift Squad" # tên project Firebase, tên khách hàng thật chưa rõ
+    alter_title: "Confidential Home-Care Staff Shift & Wallet App"
+    tech: "Flutter (FlutterFlow-based)"
+    description: "Shift scheduling and digital wallet app for home-care staff workforce management."
+    nda: true
+  - id: lg-vina-scanner
+    category: production
+    title: "LG Vina"
+    alter_title: "Confidential Cosmetics Label Scanning App"
+    tech: "Flutter"
+    description: "Weighting label scanner app supporting a cosmetics manufacturing/QC workflow."
+    nda: true
+  - id: neom-ecommerce
+    category: production
+    title: "NEOM" # tên thư mục nội bộ "agn-damansara-mobile"
+    alter_title: "Confidential E-commerce App"
+    tech: "Flutter"
+    description: "E-commerce mobile app with cart, checkout, and wishlist functionality."
+    nda: true
+  - id: phl-insurance-agent
+    category: production
+    title: "PHL Insurance Agent App" # tên khách hàng thật chưa rõ
+    alter_title: "Confidential Insurance Agent App"
+    tech: "Flutter"
+    description: "Insurance agent mobile app covering financial needs analysis (FNA), insurance requests, and policy illustrations."
+    nda: true
+  - id: angle-ecommerce
+    category: production
+    title: "Angle" # tên pubspec nội bộ "angel_vn_app"
+    alter_title: "Confidential E-commerce & Events App"
+    tech: "Flutter"
+    description: "E-commerce and event-focused mobile app."
+    nda: true
   - id: immoshoot-crawler
     category: backend_automation
     title: "Immoshoot Crawler"
