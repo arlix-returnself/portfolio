@@ -268,6 +268,7 @@ fn section_label(id: &str) -> &'static str {
         "projects" => "Projects",
         "achievements" => "Achievements",
         "education" => "Education",
+        "additional_info" => "Additional Info",
         other => panic!("Unknown section id in keymap.yaml: {other}"),
     }
 }
@@ -281,6 +282,7 @@ fn section_anchor(id: &str) -> &'static str {
         "projects" => "projects",
         "achievements" => "achievements",
         "education" => "education",
+        "additional_info" => "additional-info",
         other => panic!("Unknown section id in keymap.yaml: {other}"),
     }
 }
@@ -496,6 +498,18 @@ fn render_achievements(achievements: &[String]) -> String {
     )
 }
 
+fn render_additional_info(info: &[AdditionalInfo]) -> String {
+    let items: String = info
+        .iter()
+        .map(|item| format!("<p><strong>{}:</strong> {}</p>", item.label, render_inline(&item.content)))
+        .collect::<Vec<_>>()
+        .join("\n                            ");
+
+    format!(
+        "\n                <section id=\"additional-info\" class=\"animate-in\">\n                    <h2>Additional Information</h2>\n                    <div class=\"experience-item\">\n                        {items}\n                    </div>\n                </section>"
+    )
+}
+
 fn render_education(education: &[Education]) -> String {
     let items: String = education
         .iter()
@@ -519,6 +533,7 @@ fn render_section(id: &str, profile: &Profile, key: &ProfileKey) -> String {
         "projects" => render_projects(&profile.project_categories, &profile.projects),
         "achievements" => render_achievements(&profile.achievements),
         "education" => render_education(&profile.education),
+        "additional_info" => render_additional_info(&profile.additional_info),
         other => panic!("Unknown section id in keymap.yaml: {other}"),
     }
 }

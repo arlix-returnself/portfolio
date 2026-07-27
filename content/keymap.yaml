@@ -2,7 +2,7 @@
 # Mỗi profile override: title hiển thị, SEO, và danh sách section được render (theo đúng thứ tự = thứ tự nav).
 #
 # Section id hợp lệ (khớp với dữ liệu trong profile.yaml):
-#   summary | skills | experience | ai_automation_expertise | projects | achievements | education
+#   summary | skills | experience | ai_automation_expertise | projects | achievements | education | additional_info
 #
 # Lưu ý: bản build-html.js cũ có field `skip_sections` nhưng chưa từng được code build đọc tới (dead data).
 # Ở thiết kế mới, `sections` là allowlist tường minh và thực sự được scripts/build.rs dùng để render + build nav.
@@ -32,7 +32,7 @@ profiles:
       description: "Văn Minh Huy - Senior Mobile Developer specializing in iOS, Native development and CI/CD automation."
       keywords: "iOS Developer, SwiftUI, Fastlane, CI/CD, Mobile Engineer"
       author: "Văn Minh Huy"
-    sections: [summary, skills, experience, projects, achievements, education]
+    sections: [summary, skills, experience, projects, achievements, education, additional_info]
 
   - id: android
     title: "Senior Software Engineer | Kotlin, Flutter & IoT Specialist"
@@ -40,7 +40,7 @@ profiles:
       description: "Văn Minh Huy - Senior Software Engineer specializing in Kotlin, Flutter and IoT device integration."
       keywords: "Android Developer, Kotlin, Jetpack Compose, Flutter, IoT, Mobile Engineer"
       author: "Văn Minh Huy"
-    sections: [summary, skills, experience, projects, achievements, education]
+    sections: [summary, skills, experience, projects, achievements, education, additional_info]
 
   - id: standard
     title: "Senior Mobile Developer | Team Lead"
@@ -48,7 +48,7 @@ profiles:
       description: "Văn Minh Huy - Senior Mobile Developer and Team Lead with 2.5+ years of experience."
       keywords: "Mobile Developer, Team Lead, Flutter, React Native, Senior Engineer"
       author: "Văn Minh Huy"
-    sections: [summary, skills, experience, projects, achievements, education]
+    sections: [summary, skills, experience, projects, achievements, education, additional_info]
 
   - id: xamarin
     title: "Mobile Developer"
@@ -56,7 +56,7 @@ profiles:
       description: "Văn Minh Huy - Mobile Developer with production experience in Xamarin, Flutter and React Native."
       keywords: "Xamarin, C#, Mobile Developer, Cross-platform, Flutter, React Native"
       author: "Văn Minh Huy"
-    sections: [summary, skills, experience, projects, achievements, education]
+    sections: [summary, skills, experience, projects, achievements, education, additional_info]
 
   - id: full-portfolio
     title: "Senior Mobile Developer | Full Project Portfolio"
@@ -64,7 +64,7 @@ profiles:
       description: "Văn Minh Huy - Full project portfolio across mobile, web, AI and DevOps engineering."
       keywords: "Portfolio, Mobile Developer, Fullstack Engineer, AI Integration, DevOps"
       author: "Văn Minh Huy"
-    sections: [summary, skills, experience, ai_automation_expertise, projects, achievements, education]
+    sections: [summary, skills, experience, ai_automation_expertise, projects, achievements, education, additional_info]
 
   - id: teaching
     title: "Software Engineering Instructor & Mentor | Fullstack, Mobile & AI"
@@ -75,4 +75,4 @@ profiles:
     summary:
       - "After 4+ years as a fullstack software engineer and 2.5 years leading an 8-person mobile engineering team, I'm moving toward technical teaching and mentorship. The developer job market has grown intensely competitive as AI reshapes how software gets built, and I see teaching as the right response: it gives me dedicated time to go deeper into AI, a structured way to pass on real production experience — architecture, DevOps, code quality, team leadership — to the next generation of engineers, and a discipline that forces me to keep revisiting and sharpening my own software engineering fundamentals."
       - "My background spans mobile (Flutter, React Native, Kotlin, SwiftUI), full-stack web (React/Next.js, FastAPI, NestJS, Golang), and hands-on AI/LLM integration, with direct experience mentoring a team through code review, architecture decisions, and delivery under real deadlines — the same skills that translate into teaching engineers who can actually ship."
-    sections: [summary, experience, skills, projects, achievements, education]
+    sections: [summary, experience, skills, projects, achievements, education, additional_info]
